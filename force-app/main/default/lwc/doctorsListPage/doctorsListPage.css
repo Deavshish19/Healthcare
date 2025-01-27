@@ -1,0 +1,53 @@
+/* Header Styling */
+.header-container {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #0070d2, #005fb2);
+    color: white;
+    border-radius: 10px;
+}
+
+.header-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.header-subtitle {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* Doctor Card Styling */
+.doctor-container {
+    padding: 2rem;
+    background-color: #f3f3f3;
+}
+
+.doctor-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    background: white;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-name {
+    font-size: 1.5rem;
+    color: #0070d2;
+}
+
+.doctor-degree, .doctor-specialty {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Button Styling */
+lightning-button {
+    --sds-c-button-brand-color-background: #0070d2;
+    --sds-c-button-brand-color-border: #0070d2;
+    --sds-c-button-text-color: white;
+}

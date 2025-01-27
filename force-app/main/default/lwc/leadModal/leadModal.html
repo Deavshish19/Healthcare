@@ -1,0 +1,101 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal Header -->
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">Generate Lead</h2>
+                <!-- <lightning-button-icon icon-name="utility:close" onclick={closeModal} alternative-text="Close"></lightning-button-icon> -->
+            </header>
+
+            <!-- Modal Body -->
+            <div class="slds-modal__content slds-p-around_medium">
+                <form
+                    action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWU00000FMnmZ"
+                    method="POST" class="lead-form">
+
+                    <input type="hidden" name="oid" value="00DWU00000FMnmZ">
+                    <input type="hidden" name="retURL"
+                        value="https://cymetrix-4a-dev-ed.develop.my.site.com/HMS/s/premium-treatments">
+
+                    <!-- Salutation -->
+                    <label for="salutation">Salutation</label>
+                    <lightning-combobox
+                        name="salutation"
+                        options={salutationOptions}
+                        class="slds-p-bottom_small"
+                        required>
+                    </lightning-combobox>
+
+                    <!-- First Name -->
+                    <label for="first_name">First Name</label>
+                    <lightning-input type="text" name="first_name"
+                        required></lightning-input>
+
+                    <!-- Last Name -->
+                    <label for="last_name">Last Name</label>
+                    <lightning-input type="text" name="last_name"
+                        required></lightning-input>
+
+                    <!-- Email -->
+                    <label for="email">Email</label>
+                    <lightning-input type="email" name="email"
+                        required></lightning-input>
+
+                    <!-- Mobile -->
+                    <label for="mobile">Mobile</label>
+                    <lightning-input type="tel" name="mobile"
+                        required></lightning-input>
+
+                    <!-- Company -->
+                    <label for="company">Company</label>
+                    <lightning-input type="text"
+                        name="company"></lightning-input>
+
+                    <!-- Product Interest -->
+                    <label for="interest">Product Interest</label>
+                    <lightning-combobox
+                        name="interest"
+                        options={productoptions}
+                        class="slds-p-bottom_small"
+                        required>
+                    </lightning-combobox>
+
+                    <!-- City -->
+                    <label for="city">City</label>
+                    <lightning-input type="text" name="city"></lightning-input>
+
+                    <!-- State -->
+                    <label for="state">State/Province</label>
+                    <lightning-input type="text" name="state"></lightning-input>
+
+                    <!-- Street -->
+                    <label for="street">Street</label>
+                    <lightning-textarea name="street"></lightning-textarea>
+
+                    <!-- Zip -->
+                    <label for="zip">Zip Code</label>
+                    <lightning-input type="text" name="zip"></lightning-input>
+
+                    <!-- Country -->
+                    <label for="country">Country</label>
+                    <lightning-input type="text"
+                        name="country"></lightning-input>
+
+                    <!-- Submit Button -->
+                    <div class="slds-p-top_medium">
+                        <lightning-button type="submit" label="Submit Lead"
+                            variant="brand"
+                            onsubmit={handleSubmit}></lightning-button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <footer class="slds-modal__footer">
+                <lightning-button label="Cancel"
+                    onclick={closeModal}></lightning-button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

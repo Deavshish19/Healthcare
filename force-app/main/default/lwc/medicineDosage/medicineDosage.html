@@ -1,0 +1,20 @@
+<template>
+
+    <lightning-card title="Edit Selected Medicines">
+
+        <lightning-datatable
+            key-field="id"
+            data={selectedMedicines}
+            columns={columns}
+            onsave={handleSave}
+            hide-checkbox-column
+            >
+        </lightning-datatable>
+        <div class="slds-p-around_medium slds-align_absolute-center">
+            <lightning-button label="Back" onclick={handleBack}
+                class="slds-m-right_small"></lightning-button>
+            <lightning-button label="Add Medicines" onclick={handleAddMedicines}
+                variant="brand" class="slds-m-left_small"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,35 @@
+<template>
+        
+        <div class="slds-text-align_center slds-p-around_large">
+            <h1 class="slds-text-heading_large premium-heading">Interested in Our Premium Treatments?</h1>
+            <p class="slds-text-heading_small">Explore our specialized treatments and submit your details to get a callback!</p>
+            <p class="slds-text-color_error"><strong>Get your specialise treatment price!</strong></p>
+        </div>
+    
+      
+        <div class="slds-grid slds-wrap slds-gutters_large">
+            <template for:each={treatments} for:item="treatment">
+                <div key={treatment.Id} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-3 slds-p-around_small">
+                    <div class="slds-box slds-p-around_medium slds-text-align_center slds-theme_default slds-border premium-card">
+                        <img src={treatment.Product_Image_URL__c} alt={treatment.Name} class="premium-image" />
+                        <p><strong>{treatment.Name}</strong></p>
+                        <p>{treatment.Description}</p>
+                        <div class="slds-var-p-top_small">
+                            <lightning-button 
+                                onclick={handleBookNow} 
+                                data-id={treatment.Id} 
+                                variant="brand" 
+                                label="Book Now">
+                            </lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <template if:true={showModal}>
+            <c-lead-modal  
+                onclose={handleCloseModal}>
+            </c-lead-modal>
+        </template>
+</template>

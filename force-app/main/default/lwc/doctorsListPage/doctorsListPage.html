@@ -1,0 +1,37 @@
+<template>
+    <!-- Header Section with Background Styling -->
+    <div class="header-container">
+        <h1 class="header-title">Meet Our Expert Doctors</h1>
+        <p class="header-subtitle">Book an appointment with our top specialists today!</p>
+    </div>
+
+    <!-- Grid Section for Doctors -->
+    <div class="slds-grid slds-wrap slds-gutters_large doctor-container">
+        <template for:each={doctors} for:item="doctor">
+            <div key={doctor.id} 
+                 class="slds-col slds-size_1-of-2 slds-medium-size_1-of-3 slds-large-size_1-of-4 slds-p-around_small">
+                <div class="slds-box slds-p-around_medium slds-text-align_center doctor-card">
+                    <p class="doctor-name"><strong>Dr. {doctor.Name}</strong></p>
+                    <p class="doctor-degree">{doctor.Degree__c}</p>
+                    <p class="doctor-specialty"><strong>Specialty: {doctor.Specialty__c}</strong></p>
+                    
+                    <div class="slds-var-p-top_small">
+                        <lightning-button onclick={handleBookNow} 
+                                          data-id={doctor.Id} 
+                                          variant="brand" 
+                                          label="Book Now">
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Modal for Booking Appointment -->
+    <template if:true={showAppointmentForm}>
+        <c-appointment-booking-modal 
+            doctor-id={selectedDoctorId} 
+            onclose={handleCloseModal}>
+        </c-appointment-booking-modal>
+    </template>
+</template>

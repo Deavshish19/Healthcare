@@ -1,0 +1,45 @@
+<template>
+    <template if:false={showNextStep}>
+    <lightning-card title="Add Medicines to Appointment">
+        <!-- Search Bar -->
+         <!-- <lightning-quick-action-panel header="Add Medicines"> -->
+        <lightning-input 
+            type="search" 
+            label="Search Medicines" 
+            onchange={handleSearch} 
+            placeholder="Search by name..."
+            class="slds-p-around_medium">
+        </lightning-input>
+
+        <!-- Data Table -->
+        <lightning-datatable 
+            key-field="Id" 
+            data={filteredMedicines} 
+            columns={columns} 
+            onrowselection={handleRowSelection}
+            class="slds-p-around_medium">
+        </lightning-datatable>
+
+        <!-- Footer for Action Buttons -->
+        <div class="slds-p-around_medium slds-align_absolute-center">
+            <lightning-button 
+                variant="neutral" 
+                label="Cancel" 
+                onclick={handleCancel}>
+            </lightning-button>
+        
+            <lightning-button 
+                variant="brand" 
+                label="Next" 
+                onclick={handleNext}
+                class="slds-m-left_small">
+            </lightning-button>
+        </div>
+        <!-- </lightning-quick-action-panel> -->
+    </lightning-card>
+    </template>
+
+    <template if:true={showNextStep}>
+        <c-medicine-dosage selected-medicines={selectedMedicines} appointment-id={recordId} onback={handleBack} oncancel={handleCancel}></c-medicine-dosage>
+    </template>
+</template>

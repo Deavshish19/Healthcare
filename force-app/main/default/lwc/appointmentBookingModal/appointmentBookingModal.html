@@ -1,0 +1,31 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal Header -->
+            <header class="slds-modal__header">
+                <h2 class="slds-text-heading_medium">Create Appointment for {userId}</h2>
+                <!-- <lightning-button-icon icon-name="utility:close" onclick={closeModal} alternative-text="Close"></lightning-button-icon> -->
+            </header>
+
+            <!-- Modal Body -->
+            <div class="slds-modal__content slds-p-around_medium">
+                <lightning-record-edit-form object-api-name="Appointment__c" onsuccess={handleSuccess}>
+                    <lightning-input-field field-name="Doctor__c" value={doctorId} disabled></lightning-input-field>
+                    <lightning-input-field field-name="Patient_Name__c" value={contactId} disabled></lightning-input-field>
+                    <lightning-input-field field-name="Appointment_Date__c"></lightning-input-field>
+                    <lightning-input-field field-name="Reason_for_Visit__c"></lightning-input-field>
+                    <lightning-input-field field-name="Appointment_Status__c" value="Scheduled" disabled></lightning-input-field>
+                    <div class="slds-var-p-top_medium">
+                        <lightning-button type="submit" variant="brand" label="Save"></lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+
+            <!-- Modal Footer -->
+            <footer class="slds-modal__footer">
+                <lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

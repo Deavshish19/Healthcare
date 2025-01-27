@@ -1,0 +1,60 @@
+.slds-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slds-modal__container {
+    background: #e3f2fd; /* Light Blue for Medical Theme */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    padding: 1.5rem;
+}
+
+/* Header Styling */
+.slds-modal__header {
+    background: #0070d2;
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Footer Styling */
+.slds-modal__footer {
+    text-align: right;
+    padding: 1rem;
+    border-top: 1px solid #d8dde6;
+}
+
+/* Form Elements */
+.lead-form lightning-input,
+.lead-form lightning-combobox,
+.lead-form lightning-textarea {
+    margin-bottom: 1rem;
+}
+
+/* Submit Button Styling */
+.slds-button_brand {
+    background-color: #0070d2;
+    border-color: #005fb2;
+    font-weight: bold;
+}
+
+/* Cancel Button Styling */
+.slds-button {
+    margin-right: 1rem;
+}
+
+/* Backdrop Styling */
+.slds-backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}

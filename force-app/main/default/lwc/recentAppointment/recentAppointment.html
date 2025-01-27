@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Upcoming Appointment">
+        <template if:true={appointmentId}>
+        <lightning-button slot="actions" label="Cancel Appointment" onclick={handleCancel}></lightning-button>
+        <lightning-button slot="actions" label="Reschedule" onclick={handleReschedule} class="slds-p-left_small"></lightning-button>
+        <div class="slds-m-around_small">
+            <lightning-record-form
+                object-api-name="Appointment__c"
+                mode={formMode}
+                layout-type="Full"
+                record-id={appointmentId}>
+            </lightning-record-form>
+        </div>
+        </template>
+
+        <template if:false={appointmentId}>
+            <p><strong>YOU DON'T HAVE ANY UPCOMING APPOINMENTS</strong></p>
+        </template>
+    </lightning-card>
+</template>
